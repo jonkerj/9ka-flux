@@ -1,0 +1,29 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: keycloak
+  namespace: keycloak
+spec:
+  releaseName: keycloak
+  chart:
+    repository: https://codecentric.github.io/helm-charts
+    name: keycloak
+    version: 6.1.0
+  values:
+    keycloak:
+      ingress:
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt
+        enabled: true
+        hosts:
+        - sso.9ka.nl
+        tls:
+        - secretName: keycloak-tls
+          hosts:
+          - sso.9ka.nl
+      persistence:
+        deployPostgres: true
+        dbVendor: postgres
+    postgresql:
+      persistence:
+        enabled: true
