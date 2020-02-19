@@ -1,0 +1,36 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: nextcloud
+  namespace: nextcloud
+spec:
+  releaseName: nextcloud
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com
+    name: nextcloud
+    version: 1.9.1
+  values:
+    image:
+      tag: 17.0.2-apache
+    ingress:
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+        nginx.ingress.kubernetes.io/proxy-body-size: 32m
+      enabled: true
+      tls:
+      - secretName: nextcloud-tls
+        hosts:
+        - nc.9ka.nl
+    nextcloud:
+      configs:
+        extra.config.php: |-
+          <?php
+            $CONFIG = array(
+              'overwriteprotocol' => 'https',
+            );
+          ?>
+      host: nc.9ka.nl
+      password: null
+    persistence:
+      enabled: true
+      size: 25Gi
