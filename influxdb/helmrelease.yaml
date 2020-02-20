@@ -23,5 +23,3 @@ spec:
     persistence:
       enabled: true
       storageClass: ssd
-    setDefaultUser:
-      enabled: true
