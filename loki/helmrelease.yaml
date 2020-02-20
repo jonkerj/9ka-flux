@@ -8,7 +8,7 @@ spec:
   chart:
     repository: https://grafana.github.io/loki/charts
     name: loki
-    version: 0.22.0
+    version: 0.25.1
   values:
     serviceMonitor:
       enabled: true
