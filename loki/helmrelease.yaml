@@ -1,0 +1,16 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: loki
+  namespace: loki
+spec:
+  releaseName: loki
+  chart:
+    repository: https://grafana.github.io/loki/charts
+    name: loki
+    version: 0.22.0
+  values:
+    serviceMonitor:
+      enabled: true
+      additionalLabels:
+        release: monitoring
