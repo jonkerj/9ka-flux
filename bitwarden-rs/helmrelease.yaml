@@ -1,0 +1,36 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: bitwarden-rs
+  namespace: bitwarden-rs
+spec:
+  releaseName: bitwarden-rs
+  chart:
+    git: https://github.com/robinelfrink/helm-bitwarden_rs
+    ref: master
+    path: .
+  values:
+    bitwarden:
+      domain: https://brs.9ka.nl
+      invitations_allowed: true
+      server_admin_email: jorik@efgh.nl
+      signups_allowed: false
+      smtp_from: jorik@efgh.nl
+      smtp_host: 172.21.46.1
+      smtp_port: 25
+      smtp_ssl: false
+    deployment:
+      image:
+        repository: bitwardenrs/server
+        tag: 1.13.1
+    ingress:
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+      hosts:
+      - brs.9ka.nl
+      paths:
+      - /
+      tls:
+      - secretName: bitwarden-tls
+        hosts:
+        - brs.9ka.nl
