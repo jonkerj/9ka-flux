@@ -1,0 +1,21 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: nfs-sas
+  namespace: nfs
+spec:
+  releaseName: nfs-client-provisioner-sas
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com
+    name: nfs-client-provisioner
+    version: 1.2.8
+  values:
+    nfs:
+      path: /rpool/k8s
+      server: 172.21.46.2
+      mountOptions:
+      - nfsvers=4.0
+    storageClass:
+      archiveOnDelete: false
+      defaultClass: false
+      name: sas
