@@ -15,8 +15,8 @@ data:
       access: proxy
       url: http://influxdb.influxdb:8086/
       database: iio
-      user: admin
+      user: $INFLUX_USER
       secureJsonData:
-        password: $INFLUX_ADMIN_PASSWORD
+        password: $INFLUX_PASSWORD
       editable: false
 ...
