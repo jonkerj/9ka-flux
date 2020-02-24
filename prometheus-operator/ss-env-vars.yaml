@@ -1,0 +1,16 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: envvars
+  namespace: monitoring
+spec:
+  encryptedData:
+    INFLUX_ADMIN_PASSWORD: AgAOpyj8FYydskG5Zja5LyYZG48BKAjuPGVEjI8CfPNzRiI+8/gTnSpLflrtX+9pD0lScYQkfMGaLi1Msd599HXSTUh8W+zw38PGOkAnO3qWfMZPa3Yph05Qb4S7eBIft77RbGWjJJELiWJl3wk0NFDuekmydSL4NFuuRErGjjiXgWwwJayaSG4x5QJN4qxkKIZNdVrzs51+l2Hm6Ku1m49NsEUT4vYApqU6aEjKgmpIBlDEkri/SY3exKAQ3T9LhEDumHhzb65aHglp8XXnXKo8eyKXnkIB46vQ3/XzGK4SzhTlRkwCTgCRwjaPrfPmQrlw96F2zVcfIi/GVYIuSBLewLSDNPyU0I/rhA0uhxfXtdNvwCF9i83HQ+Q9N8MmIhpg0PkSvWzD75n8/lKJ/gQM80S9lDwhobhCL293vge9LNAORD8F+VNicwQBcN6loGPVWJrO5TsAoMRM0yuECWvigTa7zuk4o0VlLfs34Mhw4O0RZFLk7vZYu6pN/exhgkEUSd4tCV++og9pQ9m0cpjL5uEYCVsfsW2JyOCANeJneLrQ7V8ffy0+3S5CHAj9TtBzeHh6AdtBez8wdDM43Zfwspuk9xll817O5rWJfP2bb4v3p8lEd+vb/3iMigD0bGWCBWd0fP0dlDsnE8Cy1qnHGHqeDFrKlr5kMKOL3iDPBa5sZPXFNdqK0Lb9y01Xf/EtVQBvHgMf++Kk
+  template:
+    metadata:
+      creationTimestamp: null
+      name: envvars
+      namespace: monitoring
+status: {}
+
