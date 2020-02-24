@@ -19,6 +19,7 @@ spec:
     grafana:
       admin:
         existingSecret: admin-user
+      envFromSecret: envvars
       grafana.ini:
         server:
           root_url: https://grafana.9ka.nl
