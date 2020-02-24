@@ -17,6 +17,8 @@ spec:
         selector:
           k8s-app: coredns
     grafana:
+      admin:
+        existingSecret: admin-user
       grafana.ini:
         server:
           root_url: https://grafana.9ka.nl
@@ -84,4 +86,4 @@ spec:
         retention: 2w
   valuesFrom:
   - secretKeyRef:
-      name: secrets
+      name: helm-secrets
