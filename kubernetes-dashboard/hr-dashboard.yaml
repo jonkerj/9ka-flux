@@ -1,0 +1,11 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: kubernetes-dashboard
+  namespace: kubernetes-dashboard
+spec:
+  releaseName: kubernetes-dashboard
+  chart:
+    repository: https://funkypenguin.github.io/helm-charts
+    name: kubernetes-dashboard
+    version: 2.0.0-fpdev
