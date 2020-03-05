@@ -30,3 +30,6 @@ spec:
     prometheus:
       operator:
         enabled: true
+  valuesFrom:
+  - secretKeyRef:
+      name: helm-secrets
