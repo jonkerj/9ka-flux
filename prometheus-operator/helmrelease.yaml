@@ -85,6 +85,14 @@ spec:
           - prometheus.9ka.nl
       prometheusSpec:
         retention: 2w
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: sas
+              resources:
+                requests:
+                  storage: 10Gi
+              
   valuesFrom:
   - secretKeyRef:
       name: helm-secrets
