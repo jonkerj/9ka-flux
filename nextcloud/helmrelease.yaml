@@ -8,7 +8,7 @@ spec:
   chart:
     repository: https://kubernetes-charts.storage.googleapis.com
     name: nextcloud
-    version: 1.9.1
+    version: 1.9.2
   values:
     image:
       tag: 18.0.1-apache
