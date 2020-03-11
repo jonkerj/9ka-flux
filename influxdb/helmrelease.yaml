@@ -8,7 +8,7 @@ spec:
   chart:
     repository: https://kubernetes-charts.storage.googleapis.com
     name: influxdb
-    version: 4.3.1
+    version: 4.3.2
   values:
     config:
       http:
