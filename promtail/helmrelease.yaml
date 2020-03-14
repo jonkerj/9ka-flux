@@ -16,3 +16,4 @@ spec:
       enabled: true
       additionalLabels:
         release: monitoring
+      scrapeTimeout: 10s
