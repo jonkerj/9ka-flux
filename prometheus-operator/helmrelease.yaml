@@ -59,7 +59,7 @@ spec:
       ingress:
         annotations:
           cert-manager.io/cluster-issuer: letsencrypt
-          nginx.ingress.kubernetes.io/whitelist-source-range: 82.197.222.130,94.103.16.181,217.114.100.73,217.114.98.148,172.21.40.0/21,2001:1540:802:6::/64
+          nginx.ingress.kubernetes.io/whitelist-source-range: 185.227.72.41,94.103.16.181,217.114.100.73,217.114.98.148,172.21.40.0/21,2001:1540:802:6::/64
           ingress.kubernetes.io/custom-frame-options-value: barbuda.mgt.virtu.nl
         enabled: true
         hosts:

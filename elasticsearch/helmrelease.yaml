@@ -20,4 +20,4 @@ spec:
         - elastic.9ka.nl
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt
-        nginx.ingress.kubernetes.io/whitelist-source-range: 172.21.46.0/24,2001:1540:802:6::/64,82.197.222.130
+        nginx.ingress.kubernetes.io/whitelist-source-range: 172.21.46.0/24,2001:1540:802:6::/64,185.227.72.41
