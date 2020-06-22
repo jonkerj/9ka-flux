@@ -68,6 +68,8 @@ spec:
         - secretName: grafana-tls
           hosts:
           - grafana.9ka.nl
+      plugins:
+      - fetzerch-sunandmoon-datasource
     kubeDns:
       enabled: false
     kubeEtcd:
