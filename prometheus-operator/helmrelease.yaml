@@ -7,8 +7,8 @@ spec:
   releaseName: prometheus-operator
   chart:
     repository: https://kubernetes-charts.storage.googleapis.com
-    name: promethe1s-operator
-    version: 8.12.1
+    name: prometheus-operator
+    version: 8.15.6
   values:
     alertmanager:
       enabled: false
