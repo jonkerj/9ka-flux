@@ -53,7 +53,7 @@ spec:
         users:
           allow_org_create: false
           auto_assign_org: true
-          auto_assign_org_role: Editor
+          auto_assign_org_role: Admin
         security:
           allow_embedding: true
       ingress:
