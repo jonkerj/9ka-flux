@@ -34,10 +34,6 @@ spec:
           mode: console
         grafana_net:
           url: https://grafana.net
-        auth.anonymous:
-          enabled: true
-          org_role: Viewer
-          org_name: Main Org.
         auth.generic_oauth:
           enabled: true
           name: 9ka
@@ -59,8 +55,8 @@ spec:
       ingress:
         annotations:
           cert-manager.io/cluster-issuer: letsencrypt
-          nginx.ingress.kubernetes.io/whitelist-source-range: 185.227.75.212,94.103.16.181,217.114.100.73,217.114.98.148,172.21.40.0/21,2001:1540:802:6::/64
-          ingress.kubernetes.io/custom-frame-options-value: barbuda.mgt.virtu.nl
+#          nginx.ingress.kubernetes.io/whitelist-source-range: 185.227.75.212,94.103.16.181,217.114.100.73,217.114.98.148,172.21.40.0/21,2001:1540:802:6::/64
+#          ingress.kubernetes.io/custom-frame-options-value: barbuda.mgt.virtu.nl
         enabled: true
         hosts:
         - grafana.9ka.nl
@@ -78,6 +74,7 @@ spec:
       ingress:
         annotations:
           cert-manager.io/cluster-issuer: letsencrypt
+          nginx.ingress.kubernetes.io/whitelist-source-range: 185.227.75.212,172.21.40.0/21,2001:1540:802:6::/64
         enabled: true
         hosts:
         - prometheus.9ka.nl
@@ -94,7 +91,6 @@ spec:
               resources:
                 requests:
                   storage: 10Gi
-              
   valuesFrom:
   - secretKeyRef:
       name: helm-secrets
