@@ -6,13 +6,13 @@ metadata:
 spec:
   releaseName: influxdb
   chart:
-    repository: https://kubernetes-charts.storage.googleapis.com
+    repository: https://helm.influxdata.com/
     name: influxdb
-    version: 4.3.2
+    version: 4.7.0
   values:
     config:
       http:
-        auth_enabled: true
+        auth-enabled: true
     ingress:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt
