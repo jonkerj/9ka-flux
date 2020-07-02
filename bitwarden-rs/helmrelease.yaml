@@ -8,7 +8,7 @@ spec:
   chart:
     git: https://github.com/robinelfrink/helm-bitwarden_rs
     ref: 0ef6a7c
-    path: .
+    path: charts/bitwarden
   values:
     bitwarden:
       domain: https://brs.9ka.nl
