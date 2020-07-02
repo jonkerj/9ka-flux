@@ -6,6 +6,9 @@ metadata:
 spec:
   releaseName: kubernetes-dashboard
   chart:
-    repository: https://funkypenguin.github.io/helm-charts
+    repository: https://kubernetes.github.io/dashboard/
     name: kubernetes-dashboard
-    version: 2.0.0-fpdev
+    version: 2.2.0
+  values:
+    metricsScraper:
+      enabled: true
