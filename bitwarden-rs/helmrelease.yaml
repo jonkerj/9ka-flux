@@ -7,7 +7,7 @@ spec:
   releaseName: bitwarden-rs
   chart:
     git: https://github.com/robinelfrink/helm-bitwarden_rs
-    ref: master
+    ref: 0ef6a7c
     path: .
   values:
     bitwarden:
