@@ -11,7 +11,7 @@ spec:
     version: 1.12.0
   values:
     image:
-      tag: 18.0.1-apache
+      tag: 19.0.0-apache
     ingress:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt
