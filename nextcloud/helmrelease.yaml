@@ -34,3 +34,8 @@ spec:
     persistence:
       enabled: true
       size: 25Gi
+    readinessProbe:
+      periodSeconds: 30
+      failureThreshold: 10
+    livenessProbe:
+      initialDelaySeconds: 180
