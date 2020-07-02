@@ -38,4 +38,4 @@ spec:
       periodSeconds: 30
       failureThreshold: 10
     livenessProbe:
-      initialDelaySeconds: 180
+      initialDelaySeconds: 300
