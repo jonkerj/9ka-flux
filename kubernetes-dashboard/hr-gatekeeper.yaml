@@ -8,7 +8,7 @@ spec:
   chart:
     repository: https://gabibbo97.github.io/charts/
     name: keycloak-gatekeeper
-    version: 2.2.0
+    version: 3.3.1
   values:
     ClientID: dashboard
     discoveryURL: https://sso.9ka.nl/auth/realms/9ka
