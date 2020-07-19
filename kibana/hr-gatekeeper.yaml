@@ -22,8 +22,7 @@ spec:
       - hosts:
         - kibana.9ka.nl
         secretName: kibana-tls
-    skipUpstreamTlsVerify: true
-    upstreamURL: https://kibana-kibana.kibana/
+    upstreamURL: http://kibana-kibana.kibana:5601/
   valuesFrom:
   - secretKeyRef:
       name: secrets
