@@ -1,0 +1,13 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: kibana
+  namespace: kibana
+spec:
+  releaseName: kibana
+  chart:
+    repository: https://helm.elastic.co
+    name: kibana
+    version: 7.8.0
+  values:
+    elasticsearchHosts: 'http://elasticsearch-master.elasticsearch:9200'

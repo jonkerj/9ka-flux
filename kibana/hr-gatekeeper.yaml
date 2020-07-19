@@ -1,0 +1,29 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: keycloak-gatekeeper
+  namespace: kibana
+spec:
+  releaseName: keycloak-gatekeeper
+  chart:
+    repository: https://gabibbo97.github.io/charts/
+    name: keycloak-gatekeeper
+    version: 3.3.1
+  values:
+    ClientID: kibana
+    discoveryURL: https://sso.9ka.nl/auth/realms/9ka
+    ingress:
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+      enabled: true
+      hosts:
+      - kibana.9ka.nl
+      tls:
+      - hosts:
+        - kibana.9ka.nl
+        secretName: kibana-tls
+    skipUpstreamTlsVerify: true
+    upstreamURL: https://kibana-kibana.kibana/
+  valuesFrom:
+  - secretKeyRef:
+      name: secrets
