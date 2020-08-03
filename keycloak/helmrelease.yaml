@@ -8,28 +8,30 @@ spec:
   chart:
     repository: https://codecentric.github.io/helm-charts
     name: keycloak
-    version: 8.2.2
+    version: 9.0.1
   values:
-    keycloak:
-      ingress:
-        annotations:
-          cert-manager.io/cluster-issuer: letsencrypt
-        enabled: true
+    ingress:
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+      enabled: true
+      rules:
+      - host: sso.9ka.nl
+        paths:
+        - /
+      tls:
+      - secretName: keycloak-tls
         hosts:
         - sso.9ka.nl
-        tls:
-        - secretName: keycloak-tls
-          hosts:
-          - sso.9ka.nl
-      persistence:
-        deployPostgres: true
-        dbVendor: postgres
+    extraEnv:
+    - key: PROXY_ADDRESS_FORWARDING
+      value: true
     postgresql:
-      persistence:
-        enabled: true
-    prometheus:
-      operator:
-        enabled: true
+      enabled: true
+    serviceMonitor:
+      enabled: true
+      labels:
+        release: monitoring
+      interval: 60s
   valuesFrom:
   - secretKeyRef:
       name: helm-secrets
