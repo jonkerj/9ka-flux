@@ -6,9 +6,9 @@ metadata:
 spec:
   releaseName: bitwarden-rs
   chart:
-    git: https://github.com/Skeen/helm-bitwarden_rs
-    ref: 025a505
-    path: charts/bitwarden
+    repository: https://skeen.github.io/helm-bitwarden_rs
+    name: bitwarden
+    version: 0.2.0
   values:
     bitwarden:
       domain: https://brs.9ka.nl
@@ -19,9 +19,6 @@ spec:
       smtp_host: 172.21.46.1
       smtp_port: 25
       smtp_ssl: false
-    deployment:
-      image:
-        tag: 1.16.1
     ingress:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt
