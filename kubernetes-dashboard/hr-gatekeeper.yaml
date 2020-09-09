@@ -1,10 +1,10 @@
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: keycloak-gatekeeper
+  name: dashboard-gatekeeper
   namespace: kubernetes-dashboard
 spec:
-  releaseName: keycloak-gatekeeper
+  releaseName: dashboard-gatekeeper
   chart:
     repository: https://gabibbo97.github.io/charts/
     name: keycloak-gatekeeper

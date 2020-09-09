@@ -1,10 +1,10 @@
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: keycloak-gatekeeper
+  name: kibana-gatekeeper
   namespace: kibana
 spec:
-  releaseName: keycloak-gatekeeper
+  releaseName: kibana-gatekeeper
   chart:
     repository: https://gabibbo97.github.io/charts/
     name: keycloak-gatekeeper
