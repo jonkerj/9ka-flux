@@ -12,3 +12,5 @@ spec:
   values:
     metricsScraper:
       enabled: true
+    rbac:
+      clusterReadOnlyRole: true
