@@ -23,7 +23,7 @@ spec:
         - dashboard.9ka.nl
         secretName: dashboard-tls
     skipUpstreamTlsVerify: true
-    upstreamURL: https://kubernetes-dashboard.kubernetes-dashboard/
+    upstreamURL: https://kubernetes-dashboard/
   valuesFrom:
   - secretKeyRef:
       name: secrets
