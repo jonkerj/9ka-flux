@@ -22,9 +22,9 @@ spec:
       - secretName: keycloak-tls
         hosts:
         - sso.9ka.nl
-    extraEnv:
-    - key: PROXY_ADDRESS_FORWARDING
-      value: "true"
+    extraEnv: |
+      - name: PROXY_ADDRESS_FORWARDING
+        value: "true"
     postgresql:
       enabled: true
     serviceMonitor:
