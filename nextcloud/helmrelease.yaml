@@ -8,10 +8,10 @@ spec:
   chart:
     repository: https://kubernetes-charts.storage.googleapis.com
     name: nextcloud
-    version: 1.12.0
+    version: 1.12.1
   values:
     image:
-      tag: 19.0.0-apache
+      tag: 19.0.2-apache
     ingress:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt
