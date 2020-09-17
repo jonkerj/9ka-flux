@@ -3,8 +3,6 @@ kind: HelmRelease
 metadata:
   name: dashboard-gatekeeper
   namespace: kubernetes-dashboard
-  annotations:
-    helm.fluxcd.io/migrate: "true"
 spec:
   releaseName: dashboard-gatekeeper
   helmVersion: v3

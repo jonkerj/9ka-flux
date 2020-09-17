@@ -5,6 +5,7 @@ metadata:
   namespace: sealed-secrets
 spec:
   releaseName: sealed-secrets
+  helmVersion: v3
   chart:
     repository: https://kubernetes-charts.storage.googleapis.com
     name: sealed-secrets

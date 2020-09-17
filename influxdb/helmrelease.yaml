@@ -5,6 +5,7 @@ metadata:
   namespace: influxdb
 spec:
   releaseName: influxdb
+  helmVersion: v3
   chart:
     repository: https://helm.influxdata.com/
     name: influxdb

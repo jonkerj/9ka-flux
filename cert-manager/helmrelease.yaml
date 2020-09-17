@@ -5,6 +5,7 @@ metadata:
   namespace: cert-manager
 spec:
   releaseName: cert-manager
+  helmVersion: v3
   chart:
     repository: https://charts.jetstack.io
     name: cert-manager

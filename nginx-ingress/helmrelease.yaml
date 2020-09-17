@@ -5,6 +5,7 @@ metadata:
   namespace: nginx-ingress
 spec:
   releaseName: nginx-ingress
+  helmVersion: v3
   chart:
     repository: https://kubernetes-charts.storage.googleapis.com
     name: nginx-ingress

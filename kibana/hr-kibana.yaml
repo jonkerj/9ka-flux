@@ -5,6 +5,7 @@ metadata:
   namespace: kibana
 spec:
   releaseName: kibana
+  helmVersion: v3
   chart:
     repository: https://helm.elastic.co
     name: kibana

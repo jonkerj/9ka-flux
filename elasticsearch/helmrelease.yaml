@@ -5,6 +5,7 @@ metadata:
   namespace: elasticsearch
 spec:
   releaseName: elasticsearch
+  helmVersion: v3
   chart:
     repository: https://helm.elastic.co
     name: elasticsearch

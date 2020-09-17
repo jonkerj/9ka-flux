@@ -5,6 +5,7 @@ metadata:
   namespace: kibana
 spec:
   releaseName: kibana-gatekeeper
+  helmVersion: v3
   chart:
     repository: https://gabibbo97.github.io/charts/
     name: keycloak-gatekeeper
