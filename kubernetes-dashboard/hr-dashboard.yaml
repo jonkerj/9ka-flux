@@ -3,8 +3,11 @@ kind: HelmRelease
 metadata:
   name: kubernetes-dashboard
   namespace: kubernetes-dashboard
+  annotations:
+    helm.fluxcd.io/migrate: "true"
 spec:
   releaseName: kubernetes-dashboard
+  helmVersion: v3
   chart:
     repository: https://kubernetes.github.io/dashboard/
     name: kubernetes-dashboard
