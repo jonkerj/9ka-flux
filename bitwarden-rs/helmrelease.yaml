@@ -3,8 +3,11 @@ kind: HelmRelease
 metadata:
   name: bitwarden-rs
   namespace: bitwarden-rs
+  annotations:
+    helm.fluxcd.io/migrate: "true"
 spec:
   releaseName: bitwarden-rs
+  helmVersion: v3
   chart:
     repository: https://skeen.github.io/helm-bitwarden_rs
     name: bitwarden

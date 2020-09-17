@@ -3,8 +3,11 @@ kind: HelmRelease
 metadata:
   name: prometheus-operator
   namespace: monitoring
+  annotations:
+    helm.fluxcd.io/migrate: "true"
 spec:
   releaseName: prometheus-operator
+  helmVersion: v3
   chart:
     repository: https://kubernetes-charts.storage.googleapis.com
     name: prometheus-operator
