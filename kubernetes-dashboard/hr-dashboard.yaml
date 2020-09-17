@@ -9,7 +9,7 @@ spec:
   chart:
     repository: https://kubernetes.github.io/dashboard/
     name: kubernetes-dashboard
-    version: 2.6.0
+    version: 2.7.1
   values:
     metricsScraper:
       enabled: true
