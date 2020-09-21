@@ -72,17 +72,6 @@ spec:
     kubeEtcd:
       enabled: false
     prometheus:
-      ingress:
-        annotations:
-          cert-manager.io/cluster-issuer: letsencrypt
-          nginx.ingress.kubernetes.io/whitelist-source-range: 185.227.75.212,172.21.40.0/21,2001:1540:802:6::/64
-        enabled: true
-        hosts:
-        - prometheus.9ka.nl
-        tls:
-        - secretName: prometheus-tls
-          hosts:
-          - prometheus.9ka.nl
       prometheusSpec:
         retention: 2w
         storageSpec:
@@ -94,4 +83,4 @@ spec:
                   storage: 10Gi
   valuesFrom:
   - secretKeyRef:
-      name: helm-secrets
+      name: helm-prometheus

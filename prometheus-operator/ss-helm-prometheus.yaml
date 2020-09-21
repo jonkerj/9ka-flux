@@ -1,0 +1,17 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: helm-prometheus
+  namespace: monitoring
+spec:
+  encryptedData:
+    values.yaml: AgAzMi/BsIa59Zclz9cKxp75qKKLvVOs03idiHgDuEWCpinqNNkeMejUhXgncWKtntuTcXHNrjxuYAbCKyi0vbWPDcL8b9DkkTD9V1HB0/farJhtaaZcT9C90vlYuUzLvB9hb9IDrsWScO+xIQ2R0M6lHJ+qphtNBVIWv0kWRsWo9Xa+s+PsGnHsxB5nndV1hoXEMOKJZb3NWIxVWTkqIUO87X7Nh0n2k+Lsn/LB7M+XyaD6pnrNVf4WIM92PU5qzERJo6I1OodvqnBdUCWv/M9sfGPRcf+qLhKUw3M0cgSk1XdwIaxqmVEzDhEqUCULwEXJmn3Q81KApiyL3GLcfN8yRQlb1SudCaOU8yfLvEHwB0/I6pjoKktZUYK1znNf8cOnqGE4t7lCHdX/pzNF01hLeR64gL7PGP+iO7V02UvnO/lqtDDK9DT7fv4gAIFyPJW5xyTiRcO5XT8l1XIpsLd2ozlriXecUsb0FlyfbTCVnxNuDl6g4fhRs9FjNUAlUbp595jElLaZnj1A9FyS64mFV6/MZNnN2LJHrNSed2Wd+mu4/5fUCd0+eNgw2esqnUX5F8xs92OGipvPl2DEC5Qw2FSgoPXkTPr9tcN3CUoHt63dJ8c0tZgYmdRrsKtqZgKKWA0QUQ3Zc1OaQFtDxPhf6nqYczTXV5tzyOOJ5NFLiXYjD2n51mWVG5vsk1ITSRi5JduBBGAwYU3/jl6qUnzXAq8GCqS4gi4QrflZmdINhVnJDbgeoH+G+cR9ippaTrwkUVbi82tYhC97Sc4lSw7r5BOj4QzcBKMWiFxCiIBZpsb54XYs8KmbGnJN+j3Chhp/4MuQeL/BMDLk
+  template:
+    metadata:
+      creationTimestamp: null
+      name: helm-prometheus
+      namespace: monitoring
+    type: Opaque
+status: {}
+
