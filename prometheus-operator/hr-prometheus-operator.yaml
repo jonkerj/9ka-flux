@@ -12,7 +12,14 @@ spec:
     version: 9.4.3
   values:
     alertmanager:
-      enabled: false
+      alertmanagerSpec:
+        storage:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: sas
+              resources:
+                requests:
+                  storage: 10Gi
     coreDns:
       service:
         selector:
