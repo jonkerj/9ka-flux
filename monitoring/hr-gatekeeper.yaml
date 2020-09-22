@@ -23,7 +23,7 @@ spec:
       - hosts:
         - prometheus.9ka.nl
         secretName: prometheus-tls
-    upstreamURL: http://prometheus-operator-kube-p-prometheus:9090/
+    upstreamURL: http://prometheus-operated:9090/
   valuesFrom:
   - secretKeyRef:
       name: helm-gatekeeper

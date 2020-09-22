@@ -2,19 +2,19 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: datasource-kantoor
+  name: influxdb-solar-datasource
   namespace: monitoring
   labels:
     grafana_datasource: "1"
 data:
-  influx-kantoor.yaml: |-
+  solar.yaml: |-
     apiVersion: 1
     datasources:
-    - name: kantoor
+    - name: solar
       type: influxdb
       access: proxy
       url: http://influxdb.influxdb:8086/
-      database: kantoor
+      database: solar
       user: $INFLUX_USER
       secureJsonData:
         password: $INFLUX_PASSWORD

@@ -2,7 +2,7 @@ apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
   name: prometheus-operator
-  namespace: monitoring
+  namespace: prometheus-operator
 spec:
   releaseName: prometheus-operator
   helmVersion: v3
@@ -12,14 +12,7 @@ spec:
     version: 9.4.3
   values:
     alertmanager:
-      alertmanagerSpec:
-        storage:
-          volumeClaimTemplate:
-            spec:
-              storageClassName: sas
-              resources:
-                requests:
-                  storage: 10Gi
+      enabled: false
     coreDns:
       service:
         selector:
@@ -63,8 +56,6 @@ spec:
       ingress:
         annotations:
           cert-manager.io/cluster-issuer: letsencrypt
-#          nginx.ingress.kubernetes.io/whitelist-source-range: 185.227.75.212,94.103.16.181,217.114.100.73,217.114.98.148,172.21.40.0/21,2001:1540:802:6::/64
-#          ingress.kubernetes.io/custom-frame-options-value: barbuda.mgt.virtu.nl
         enabled: true
         hosts:
         - grafana.9ka.nl
@@ -74,20 +65,17 @@ spec:
           - grafana.9ka.nl
       plugins:
       - fetzerch-sunandmoon-datasource
+      sidecar:
+        datasources:
+          searchNamespace: ALL
+        dashboards:
+          searchNamespace: ALL
     kubeDns:
       enabled: false
     kubeEtcd:
       enabled: false
     prometheus:
-      prometheusSpec:
-        retention: 2w
-        storageSpec:
-          volumeClaimTemplate:
-            spec:
-              storageClassName: sas
-              resources:
-                requests:
-                  storage: 10Gi
+      enabled: false
   valuesFrom:
   - secretKeyRef:
       name: helm-prometheus

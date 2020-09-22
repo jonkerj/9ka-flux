@@ -1,0 +1,40 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app: hydrogen-node-exporter
+  name: hydrogen-node-exporter
+  namespace: monitoring
+spec:
+  endpoints:
+  - port: http
+  selector:
+    matchLabels:
+      app: hydrogen-node-exporter
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: hydrogen-node-exporter
+subsets:
+- addresses:
+  - ip: 172.21.42.1
+  ports:
+  - name: http
+    port: 9100
+    protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: hydrogen-node-exporter
+  name: hydrogen-node-exporter
+spec:
+  ports:
+  - name: http
+    port: 9100
+    protocol: TCP
+    targetPort: 9100
+  sessionAffinity: None
+  type: ClusterIP
