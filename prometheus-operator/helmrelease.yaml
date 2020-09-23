@@ -11,12 +11,26 @@ spec:
     name: kube-prometheus-stack
     version: 9.4.3
   values:
+    defaultRules:
+      create: false
     alertmanager:
       enabled: false
     coreDns:
-      service:
-        selector:
-          k8s-app: coredns
+      enabled: false
+    kubeApiServer:
+      enabled: false
+    kubelet:
+      enabled: false
+    kubeControllerManager:
+      enabled: false
+    kubeEtcd:
+      enabled: false
+    kubeScheduler:
+      enabled: false
+    kubeProxy:
+      enabled: false
+    kubeStateMetrics:
+      enabled: false
     grafana:
       admin:
         existingSecret: admin-user
