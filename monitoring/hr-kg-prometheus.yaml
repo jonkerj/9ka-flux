@@ -26,4 +26,4 @@ spec:
     upstreamURL: http://prometheus-operated:9090/
   valuesFrom:
   - secretKeyRef:
-      name: helm-gatekeeper
+      name: helm-gatekeeper-prometheus

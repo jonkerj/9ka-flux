@@ -12,6 +12,13 @@ spec:
   ruleNamespaceSelector: {}
   ruleSelector: {}
   serviceAccountName: prometheus
+  externalUrl: https://prometheus.9ka.nl
+  alerting:
+    alertmanagers:
+    - namespace: monitoring
+      name: alertmanager-operated
+      port: web
+      apiVersion: v2
   storage:
     volumeClaimTemplate:
       spec:
