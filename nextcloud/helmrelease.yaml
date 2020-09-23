@@ -7,12 +7,12 @@ spec:
   releaseName: nextcloud
   helmVersion: v3
   chart:
-    repository: https://kubernetes-charts.storage.googleapis.com
+    repository: https://nextcloud.github.io/helm/
     name: nextcloud
-    version: 1.12.1
+    version: 2.1.1
   values:
     image:
-      tag: 19.0.2-apache
+      tag: 19.0.3-apache
     ingress:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt
