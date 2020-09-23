@@ -27,3 +27,18 @@ spec:
           enabled: true
           additionalLabels:
             release: monitoring
+      resources:
+        requests:
+          cpu: 100m
+          memory: 150Mi
+        limits:
+          cpu: 2
+          memory: 500Mi
+    defaultBackend:
+      resources:
+        requests:
+          cpu: 10m
+          memory: 20Mi
+        limits:
+          cpu: 10m
+          memory: 20Mi

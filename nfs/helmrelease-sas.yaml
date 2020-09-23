@@ -19,3 +19,10 @@ spec:
       archiveOnDelete: false
       defaultClass: false
       name: sas
+    resources:
+      requests:
+        cpu: 50m
+        memory: 16Mi
+      limits:
+        cpu: 250m
+        memory: 64Mi

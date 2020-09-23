@@ -6,3 +6,10 @@ metadata:
 spec:
   externalUrl: https://alertmanager.9ka.nl/
   configSecret: alertmanager-config
+  resources:
+    requests:
+      cpu: 50m
+      memory: 100Mi
+    limits: 
+      cpu: 750m
+      memory: 250Mi

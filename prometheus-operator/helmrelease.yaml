@@ -84,6 +84,13 @@ spec:
           searchNamespace: ALL
         dashboards:
           searchNamespace: ALL
+      resources:
+        requests: 
+          cpu: 150m
+          memory: 100Mi
+        limits:
+          cpu: 1
+          memory: 200Mi
     kubeDns:
       enabled: false
     kubeEtcd:

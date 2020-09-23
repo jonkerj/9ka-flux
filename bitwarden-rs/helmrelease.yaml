@@ -34,3 +34,10 @@ spec:
       - secretName: bitwarden-tls
         hosts:
         - brs.9ka.nl
+    resources:
+      requests:
+        cpu: 50m
+        memory: 25Mi
+      limits:
+        cpu: 250m
+        memory: 100Mi

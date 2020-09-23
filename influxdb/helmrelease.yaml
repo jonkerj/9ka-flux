@@ -24,3 +24,10 @@ spec:
     persistence:
       enabled: true
       storageClass: ssd
+    resources:
+      requests:
+        cpu: 50m
+        memory: 200Mi
+      limits:
+        cpu: 2
+        memory: 1Gi
