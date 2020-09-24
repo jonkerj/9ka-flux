@@ -11,7 +11,7 @@ spec:
     name: keycloak-gatekeeper
     version: 3.3.1
   values:
-    ClientID: dashboard
+    ClientID: kubernetes
     discoveryURL: https://sso.9ka.nl/auth/realms/9ka
     ingress:
       annotations:
@@ -27,4 +27,4 @@ spec:
     upstreamURL: https://kubernetes-dashboard/
   valuesFrom:
   - secretKeyRef:
-      name: secrets
+      name: helm-gatekeeper
