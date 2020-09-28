@@ -9,7 +9,7 @@ spec:
   chart:
     repository: https://helm.elastic.co
     name: kibana
-    version: 7.9.1
+    version: 7.9.2
   values:
     elasticsearchHosts: 'http://elasticsearch-master.elasticsearch:9200'
     resources:

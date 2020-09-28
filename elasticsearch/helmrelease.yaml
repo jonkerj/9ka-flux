@@ -9,7 +9,7 @@ spec:
   chart:
     repository: https://helm.elastic.co
     name: elasticsearch
-    version: 7.9.1
+    version: 7.9.2
   values:
     ingress:
       enabled: true
