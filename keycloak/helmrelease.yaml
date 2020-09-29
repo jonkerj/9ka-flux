@@ -28,11 +28,6 @@ spec:
         value: "true"
     postgresql:
       enabled: true
-    serviceMonitor:
-      enabled: true
-      labels:
-        release: monitoring
-      interval: 60s
     resources:
       requests:
         cpu: 100m
