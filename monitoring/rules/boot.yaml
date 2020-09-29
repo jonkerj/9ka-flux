@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: boot
+  namespace: monitoring
+spec:
+  groups:
+  - name: boot
+    rules:
+    - alert: Booted
+      annotations:
+        message: '{{ $labels.node_name }} was booted {{ $value | humanizeDuration }} ago'
+      expr: (time() - node_boot_time_seconds) < 300
+      labels:
+        severity: warning
