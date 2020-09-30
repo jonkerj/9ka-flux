@@ -26,6 +26,11 @@ spec:
     extraEnv: |
       - name: PROXY_ADDRESS_FORWARDING
         value: "true"
+    pgchecker:
+      resources:
+        limits:
+          cpu: "10m"
+          memory: "32Mi"
     postgresql:
       enabled: true
     resources:
