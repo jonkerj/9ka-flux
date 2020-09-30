@@ -36,6 +36,12 @@ spec:
         - sourceLabels:
           - "__meta_kubernetes_pod_node_name"
           targetLabel: node_name
+    nodeExporter:
+      serviceMonitor:
+        relabelings:
+        - sourceLabels:
+          - "__meta_kubernetes_pod_node_name"
+          targetLabel: node_name
     grafana:
       admin:
         existingSecret: admin-user
