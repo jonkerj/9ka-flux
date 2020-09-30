@@ -1,0 +1,37 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: oauth2-proxy
+  namespace: kubernetes-dashboard
+spec:
+  releaseName: oauth2-proxy
+  helmVersion: v3
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com
+    name: oauth2-proxy
+    version: 3.2.3
+  values:
+    config:
+      existingSecret: oauth2-secret
+      configFile: |-
+        provider = "keycloak"
+        login_url = "https://sso.9ka.nl/auth/realms/9ka/protocol/openid-connect/auth"
+        redeem_url = "https://sso.9ka.nl/auth/realms/9ka/protocol/openid-connect/token"
+        validate_url = "https://sso.9ka.nl/auth/realms/9ka/protocol/openid-connect/userinfo"
+        upstream = "file:///dev/null"
+        scope = "email"
+        set_authorization_header = true
+        pass_authorization_header = true
+        email_domains = [
+          "kippendief.biz"
+        ]
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+      hosts: ['dashboard.9ka.nl']
+      tls:
+      - hosts: ['dashboard.9ka.nl']
+        secretName: dashboard-tls
+      path:
+      - /oauth2

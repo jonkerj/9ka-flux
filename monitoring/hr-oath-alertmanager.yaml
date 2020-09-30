@@ -1,0 +1,35 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: oauth2-proxy-alertmanager
+  namespace: monitoring
+spec:
+  releaseName: oauth2-proxy-alertmanager
+  helmVersion: v3
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com
+    name: oauth2-proxy
+    version: 3.2.3
+  values:
+    config:
+      existingSecret: oauth2-secret
+      configFile: |-
+        provider = "keycloak"
+        login_url = "https://sso.9ka.nl/auth/realms/9ka/protocol/openid-connect/auth"
+        redeem_url = "https://sso.9ka.nl/auth/realms/9ka/protocol/openid-connect/token"
+        validate_url = "https://sso.9ka.nl/auth/realms/9ka/protocol/openid-connect/userinfo"
+        upstreams = [
+          "http://alertmanager-operated:9093/"
+        ]
+        scope = "email"
+        email_domains = [
+          "kippendief.biz"
+        ]
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+      hosts: ['alertmanager.9ka.nl']
+      tls:
+      - hosts: ['alertmanager.9ka.nl']
+        secretName: alertmanager-tls
