@@ -1,11 +1,11 @@
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
-  name: general.rules
+  name: prometheus-generic
   namespace: monitoring
 spec:
   groups:
-  - name: general.rules
+  - name: prometheus-generic
     rules:
     - alert: TargetDown
       annotations:
