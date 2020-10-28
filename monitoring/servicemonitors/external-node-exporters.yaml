@@ -90,6 +90,13 @@ subsets:
     port: 9100
     protocol: TCP
 - addresses:
+  - ip: 172.21.46.6
+    nodeName: carbon
+  ports:
+  - name: metrics
+    port: 9100
+    protocol: TCP
+- addresses:
   - ip: 172.21.42.14
     nodeName: silicon
   ports:
