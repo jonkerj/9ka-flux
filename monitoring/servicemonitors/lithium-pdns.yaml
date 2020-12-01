@@ -1,0 +1,49 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: lithium-pdns
+  namespace: monitoring
+  labels:
+    app: lithium-pdns
+spec:
+  jobLabel: lithium-pdns
+  endpoints:
+  - port: metrics
+    interval: 300s
+    relabelings:
+    - sourceLabels:
+      - "__meta_kubernetes_endpoint_node_name"
+      targetLabel: node_name
+  selector:
+    matchLabels:
+      app: lithium-pdns
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lithium-pdns
+  namespace: monitoring
+  labels:
+    app: lithium-pdns
+spec:
+  type: ClusterIP
+  ports:
+  - name: metrics
+    port: 9000
+    targetPort: metrics
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: lithium-pdns
+  namespace: monitoring
+  labels:
+    app: lithium-pdns
+subsets:
+- addresses:
+  - ip: 172.21.42.1
+    nodeName: lithium
+  ports:
+  - name: metrics
+    port: 8082
+    protocol: TCP
