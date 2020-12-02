@@ -22,6 +22,9 @@ spec:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt
         nginx.ingress.kubernetes.io/whitelist-source-range: 172.21.46.0/24,2001:1540:802:6::/64,185.227.75.212
+    replicas: 1
+    minimumMasterNodes: 1
+    clusterHealthCheckParams: "wait_for_status=yellow&timeout=1s"
     resources:
       requests:
         cpu: 100m
