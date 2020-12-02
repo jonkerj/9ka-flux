@@ -1,0 +1,35 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: keycloak-gatekeeper
+  namespace: kubernetes-dashboard
+spec:
+  releaseName: keycloak-gatekeeper
+  helmVersion: v3
+  chart:
+    repository: https://gabibbo97.github.io/charts/
+    name: keycloak-gatekeeper
+    version: 4.0.0
+  values:
+    discoveryURL: https://sso.9ka.nl/auth/realms/9ka
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt
+      hosts: ['dashboard.9ka.nl']
+      tls:
+      - hosts: ['dashboard.9ka.nl']
+        secretName: dashboard-tls
+      path: /
+    skipUpstreamTlsVerify: true
+    upstreamURL: https://kubernetes-dashboard/
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 128Mi
+  valuesFrom:
+  - secretKeyRef:
+      name: helm-keycloak-gatekeeper

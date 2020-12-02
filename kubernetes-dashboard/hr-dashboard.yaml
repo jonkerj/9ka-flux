@@ -22,14 +22,3 @@ spec:
       limits:
         cpu: 1
         memory: 200Mi
-    ingress:
-      enabled: true
-      annotations:
-        nginx.ingress.kubernetes.io/auth-url: "https://$host/oauth2/auth"
-        nginx.ingress.kubernetes.io/auth-signin: "https://$host/oauth2/start?rd=$escaped_request_uri"
-        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-        cert-manager.io/cluster-issuer: letsencrypt
-      hosts: ['dashboard.9ka.nl']
-      tls:
-      - hosts: ['dashboard.9ka.nl']
-        secretName: dashboard-tls

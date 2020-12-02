@@ -1,0 +1,16 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: helm-keycloak-gatekeeper
+  namespace: kubernetes-dashboard
+spec:
+  encryptedData:
+    values.yaml: AgAd9HzIPyV654qOXKOXrti1/9AIfs0DAEcyrkXdhNfUbFHi3SFD3hfehzOQ8PwXhvUCCBdWgLGQSO3p8RB/TCM5ckJkOo/9awdTA8Oh0KfZQfFwUjNqJkXT8HEilIQT1kW/BIuI0r8pIEtm9gMD5+Q2oi4wt5mWN/rLVy+3dIs7vaDOqYgkaulwn36JVGMV7ILA0P8tYYDSYtMwuMG1kH7NDfK3x/72cxRJXwIgx+40Upz8ikuKjO1JC6mK6Q9in1MFb/fLIVOH63RsUkw8ADfVdpasmfmtNv7cVtgp8ovsVMulirotk8I8XIxLl+iVjfxkjMBK+HwL0tIv+qxkpRDifU2qCoj5IsU8QPPbtqW3QsHU2TBoDRqRTxW1VNsS7h60ujG5YogyN3P6QmjKtHtMY8pOiExhJ6i0xDRtPQGs0GPO+Bcc77hELMTPOUhC56Lijp6LyxyuF/JEa81EZY0hNLJ1y5gJYtm99BIxk1vYzjoQo2wJ+FAspnmCuuEDgHWWJPWc4TeU7E1kT5DkQCYoGW4P/fheeugzA3oBYRDChfH7R4k13XnWBXo94KqslDrsro4lSKuk9Jk7EqTfEAy70p8/cb/1e9qpQUOXuwqtClI/HcwS7M4BCJ3+RPa3uMNsmvAtCUu8nmGFoTrTlsJHMO9qaNCVUJDcdBLTSwSSh8jeZkYc17o32mgwWA8o+TVShzgKswqdAabu6EQjx7g0AFkonLBUl+jZPT6XIgpxr/pV43x9YdneKcBax7HpC9iUsYD7cAAUCQPXFebKFj/yjWV/SSyVQV0=
+  template:
+    metadata:
+      creationTimestamp: null
+      name: helm-keycloak-gatekeeper
+      namespace: kubernetes-dashboard
+status: {}
+
