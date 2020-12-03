@@ -460,7 +460,7 @@ data:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (device) (irate(node_network_receive_bytes_total{node_name=\"$node_name\", device=~\"^(eno|enp|ens|eth|lan|wan).*$\"}[2m]))",
+              "expr": "sum by (device) (irate(node_network_receive_bytes_total{node_name=\"$node_name\", device=~\"^(eno|enp|ens|eth|lan|wan|wlan).*$\"}[2m]))",
               "interval": "1m",
               "legendFormat": "{{ mode }}",
               "refId": "A"
@@ -556,7 +556,7 @@ data:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum by (device) (irate(node_network_transmit_bytes_total{node_name=\"$node_name\", device=~\"^(eno|enp|ens|eth|lan|wan).*$\"}[2m]))",
+              "expr": "sum by (device) (irate(node_network_transmit_bytes_total{node_name=\"$node_name\", device=~\"^(eno|enp|ens|eth|lan|wan|wlan).*$\"}[2m]))",
               "interval": "1m",
               "legendFormat": "{{ mode }}",
               "refId": "A"
