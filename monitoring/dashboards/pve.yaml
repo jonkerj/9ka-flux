@@ -25,7 +25,7 @@ data:
       "editable": true,
       "gnetId": null,
       "graphTooltip": 0,
-      "id": 15,
+      "id": 13,
       "links": [],
       "panels": [
         {
@@ -33,13 +33,22 @@ data:
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": "Prometheus",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
+          "fillGradient": 0,
           "gridPos": {
             "h": 9,
             "w": 9,
             "x": 0,
             "y": 0
           },
+          "hiddenSeries": false,
           "id": 4,
           "legend": {
             "avg": false,
@@ -54,8 +63,11 @@ data:
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
-          "options": {},
+          "options": {
+            "alertThreshold": true
+          },
           "percentage": false,
+          "pluginVersion": "7.2.1",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -65,11 +77,9 @@ data:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(pve_qemu_ram_total) by (qemu)",
-              "format": "time_series",
-              "interval": "",
-              "intervalFactor": 1,
-              "legendFormat": "{{qemu}}",
+              "expr": "sum(pve_memory_usage_bytes{id!=\"node/pve\"}) by (id)",
+              "interval": "30s",
+              "legendFormat": "{{ id }}",
               "refId": "A"
             }
           ],
@@ -120,13 +130,21 @@ data:
           "dashLength": 10,
           "dashes": false,
           "datasource": "Prometheus",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
+          "fillGradient": 0,
           "gridPos": {
             "h": 9,
             "w": 9,
             "x": 9,
             "y": 0
           },
+          "hiddenSeries": false,
           "id": 2,
           "legend": {
             "avg": false,
@@ -141,8 +159,11 @@ data:
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
-          "options": {},
+          "options": {
+            "alertThreshold": true
+          },
           "percentage": false,
+          "pluginVersion": "7.2.1",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -152,11 +173,11 @@ data:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(pve_qemu_cpu_usage) by (qemu)",
+              "expr": "sum(pve_cpu_usage_ratio{id!=\"node/pve\"}) by (id)",
               "format": "time_series",
-              "interval": "",
+              "interval": "30s",
               "intervalFactor": 1,
-              "legendFormat": "{{qemu}}",
+              "legendFormat": "{{id}}",
               "refId": "A"
             }
           ],
@@ -167,7 +188,7 @@ data:
           "title": "CPU usage",
           "tooltip": {
             "shared": true,
-            "sort": 0,
+            "sort": 2,
             "value_type": "individual"
           },
           "type": "graph",
@@ -207,13 +228,21 @@ data:
           "dashLength": 10,
           "dashes": false,
           "datasource": "Prometheus",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
+          "fillGradient": 0,
           "gridPos": {
             "h": 8,
             "w": 9,
             "x": 0,
             "y": 9
           },
+          "hiddenSeries": false,
           "id": 6,
           "legend": {
             "avg": false,
@@ -228,8 +257,11 @@ data:
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
-          "options": {},
+          "options": {
+            "alertThreshold": true
+          },
           "percentage": false,
+          "pluginVersion": "7.2.1",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -239,11 +271,11 @@ data:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(rate(pve_qemu_net_in[5m])) by (qemu)",
+              "expr": "sum(irate(pve_network_receive_bytes[1m])) by (id)",
               "format": "time_series",
-              "interval": "",
+              "interval": "30s",
               "intervalFactor": 1,
-              "legendFormat": "{{qemu}}",
+              "legendFormat": "{{id}}",
               "refId": "A"
             }
           ],
@@ -294,13 +326,21 @@ data:
           "dashLength": 10,
           "dashes": false,
           "datasource": "Prometheus",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {}
+            },
+            "overrides": []
+          },
           "fill": 1,
+          "fillGradient": 0,
           "gridPos": {
             "h": 8,
             "w": 9,
             "x": 9,
             "y": 9
           },
+          "hiddenSeries": false,
           "id": 8,
           "legend": {
             "avg": false,
@@ -315,8 +355,11 @@ data:
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
-          "options": {},
+          "options": {
+            "alertThreshold": true
+          },
           "percentage": false,
+          "pluginVersion": "7.2.1",
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
@@ -326,11 +369,11 @@ data:
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sum(rate(pve_qemu_net_out[5m])) by (qemu)",
+              "expr": "sum(irate(pve_network_transmit_bytes[1m])) by (id)",
               "format": "time_series",
-              "interval": "",
+              "interval": "30s",
               "intervalFactor": 1,
-              "legendFormat": "{{qemu}}",
+              "legendFormat": "{{id}}",
               "refId": "A"
             }
           ],
@@ -377,14 +420,14 @@ data:
         }
       ],
       "refresh": false,
-      "schemaVersion": 18,
+      "schemaVersion": 26,
       "style": "dark",
       "tags": [],
       "templating": {
         "list": []
       },
       "time": {
-        "from": "now-7d",
+        "from": "now-3h",
         "to": "now"
       },
       "timepicker": {
@@ -417,4 +460,3 @@ data:
       "uid": "V-msyl7Wz",
       "version": 1
     }
-...
