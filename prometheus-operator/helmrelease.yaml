@@ -43,6 +43,9 @@ spec:
           - "__meta_kubernetes_pod_node_name"
           targetLabel: node_name
     grafana:
+      persistence:
+        enabled: true
+        size: 1Gi
       admin:
         existingSecret: admin-user
       envFromSecret: envvars
