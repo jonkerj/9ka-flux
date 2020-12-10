@@ -24,8 +24,7 @@ data:
       "editable": true,
       "gnetId": null,
       "graphTooltip": 0,
-      "id": null,
-      "iteration": 1607004076466,
+      "iteration": 1607594285657,
       "links": [],
       "panels": [
         {
@@ -262,7 +261,13 @@ data:
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
-          "seriesOverrides": [],
+          "seriesOverrides": [
+            {
+              "$$hashKey": "object:167",
+              "alias": "/^R/",
+              "transform": "negative-Y"
+            }
+          ],
           "spaceLength": 10,
           "stack": false,
           "steppedLine": false,
@@ -270,15 +275,21 @@ data:
             {
               "expr": "sum by (device) (irate(node_disk_read_bytes_total{node_name=\"$node_name\", device=~\"^[vsx]d[a-z]\"}[2m]))",
               "interval": "1m",
-              "legendFormat": "{{ mode }}",
+              "legendFormat": "R {{ device }}",
               "refId": "A"
+            },
+            {
+              "expr": "sum by (device) (irate(node_disk_written_bytes_total{node_name=\"$node_name\", device=~\"^[vsx]d[a-z]\"}[2m]))",
+              "interval": "1m",
+              "legendFormat": "W {{ device }}",
+              "refId": "B"
             }
           ],
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Disk reads",
+          "title": "Disk IO",
           "tooltip": {
             "shared": true,
             "sort": 2,
@@ -294,14 +305,16 @@ data:
           },
           "yaxes": [
             {
+              "$$hashKey": "object:139",
               "format": "binBps",
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": "0",
+              "min": null,
               "show": true
             },
             {
+              "$$hashKey": "object:140",
               "format": "short",
               "label": null,
               "logBase": 1,
@@ -337,102 +350,6 @@ data:
             "y": 9
           },
           "hiddenSeries": false,
-          "id": 5,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "7.2.1",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "sum by (device) (irate(node_disk_written_bytes_total{node_name=\"$node_name\", device=~\"^[vsx]d[a-z]\"}[2m]))",
-              "interval": "1m",
-              "legendFormat": "{{ mode }}",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Disk writes",
-          "tooltip": {
-            "shared": true,
-            "sort": 2,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "binBps",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": "0",
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "Prometheus",
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
-          },
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 9,
-            "w": 12,
-            "x": 0,
-            "y": 18
-          },
-          "hiddenSeries": false,
           "id": 6,
           "legend": {
             "avg": false,
@@ -454,7 +371,13 @@ data:
           "pointradius": 2,
           "points": false,
           "renderer": "flot",
-          "seriesOverrides": [],
+          "seriesOverrides": [
+            {
+              "$$hashKey": "object:256",
+              "alias": "/^RX/",
+              "transform": "negative-Y"
+            }
+          ],
           "spaceLength": 10,
           "stack": false,
           "steppedLine": false,
@@ -462,15 +385,21 @@ data:
             {
               "expr": "sum by (device) (irate(node_network_receive_bytes_total{node_name=\"$node_name\", device=~\"^(eno|enp|ens|eth|lan|wan|wlan).*$\"}[2m]))",
               "interval": "1m",
-              "legendFormat": "{{ mode }}",
+              "legendFormat": "RX {{ device }}",
               "refId": "A"
+            },
+            {
+              "expr": "sum by (device) (irate(node_network_transmit_bytes_total{node_name=\"$node_name\", device=~\"^(eno|enp|ens|eth|lan|wan|wlan).*$\"}[2m]))",
+              "interval": "1m",
+              "legendFormat": "TX {{ device }}",
+              "refId": "B"
             }
           ],
           "thresholds": [],
           "timeFrom": null,
           "timeRegions": [],
           "timeShift": null,
-          "title": "Network receive",
+          "title": "Network traffic",
           "tooltip": {
             "shared": true,
             "sort": 2,
@@ -486,110 +415,16 @@ data:
           },
           "yaxes": [
             {
+              "$$hashKey": "object:228",
               "format": "binbps",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": "0",
-              "show": true
-            },
-            {
-              "format": "short",
               "label": null,
               "logBase": 1,
               "max": null,
               "min": null,
               "show": true
-            }
-          ],
-          "yaxis": {
-            "align": false,
-            "alignLevel": null
-          }
-        },
-        {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": "Prometheus",
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {}
-            },
-            "overrides": []
-          },
-          "fill": 1,
-          "fillGradient": 0,
-          "gridPos": {
-            "h": 9,
-            "w": 12,
-            "x": 12,
-            "y": 18
-          },
-          "hiddenSeries": false,
-          "id": 7,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "nullPointMode": "null",
-          "options": {
-            "alertThreshold": true
-          },
-          "percentage": false,
-          "pluginVersion": "7.2.1",
-          "pointradius": 2,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "sum by (device) (irate(node_network_transmit_bytes_total{node_name=\"$node_name\", device=~\"^(eno|enp|ens|eth|lan|wan|wlan).*$\"}[2m]))",
-              "interval": "1m",
-              "legendFormat": "{{ mode }}",
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeRegions": [],
-          "timeShift": null,
-          "title": "Network transmit",
-          "tooltip": {
-            "shared": true,
-            "sort": 2,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "binbps",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": "0",
-              "show": true
             },
             {
+              "$$hashKey": "object:229",
               "format": "short",
               "label": null,
               "logBase": 1,
@@ -613,9 +448,9 @@ data:
           {
             "allValue": null,
             "current": {
-              "selected": true,
-              "text": "neon",
-              "value": "neon"
+              "selected": false,
+              "text": "pve",
+              "value": "pve"
             },
             "datasource": "Prometheus",
             "definition": "label_values(node_boot_time_seconds, node_name)",
@@ -624,80 +459,9 @@ data:
             "label": "node",
             "multi": false,
             "name": "node_name",
-            "options": [
-              {
-                "selected": false,
-                "text": "master3",
-                "value": "master3"
-              },
-              {
-                "selected": false,
-                "text": "worker1",
-                "value": "worker1"
-              },
-              {
-                "selected": false,
-                "text": "worker2",
-                "value": "worker2"
-              },
-              {
-                "selected": false,
-                "text": "worker3",
-                "value": "worker3"
-              },
-              {
-                "selected": false,
-                "text": "master1",
-                "value": "master1"
-              },
-              {
-                "selected": false,
-                "text": "master2",
-                "value": "master2"
-              },
-              {
-                "selected": true,
-                "text": "neon",
-                "value": "neon"
-              },
-              {
-                "selected": false,
-                "text": "silicon",
-                "value": "silicon"
-              },
-              {
-                "selected": false,
-                "text": "potassium",
-                "value": "potassium"
-              },
-              {
-                "selected": false,
-                "text": "hydrogen",
-                "value": "hydrogen"
-              },
-              {
-                "selected": false,
-                "text": "lithium",
-                "value": "lithium"
-              },
-              {
-                "selected": false,
-                "text": "boron",
-                "value": "boron"
-              },
-              {
-                "selected": false,
-                "text": "nitrogen",
-                "value": "nitrogen"
-              },
-              {
-                "selected": false,
-                "text": "pve",
-                "value": "pve"
-              }
-            ],
+            "options": [],
             "query": "label_values(node_boot_time_seconds, node_name)",
-            "refresh": 0,
+            "refresh": 1,
             "regex": "",
             "skipUrlSync": false,
             "sort": 0,
@@ -716,6 +480,6 @@ data:
       "timepicker": {},
       "timezone": "",
       "title": "System stats",
-      "uid": null,
-      "version": 0
+      "uid": "ts21QN1Mk",
+      "version": 1
     }
