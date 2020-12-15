@@ -6,6 +6,12 @@ metadata:
 spec:
   externalUrl: https://alertmanager.9ka.nl/
   configSecret: alertmanager-config
+  storage:
+    volumeClaimTemplate:
+      spec:
+        resources:
+          requests:
+            storage: 1Gi
   resources:
     requests:
       cpu: 50m
