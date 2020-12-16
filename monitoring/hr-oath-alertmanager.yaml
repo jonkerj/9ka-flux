@@ -25,6 +25,7 @@ spec:
         email_domains = [
           "kippendief.biz"
         ]
+        skip_provider_button = true
     ingress:
       enabled: true
       annotations:
