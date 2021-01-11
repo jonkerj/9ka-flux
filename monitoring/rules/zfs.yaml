@@ -9,7 +9,8 @@ spec:
     rules:
     - alert: ZFSPoolNotOnline
       annotations:
-        message: 'ZFS Pool {{ $labels.pool }} on {{ $labels.node_name }} is not online'
+        summary: ZFS Pool {{ $labels.pool }} on {{ $labels.node_name }} is not online
+        message: ZFS Pool {{ $labels.pool }} on {{ $labels.node_name }} is not online
       expr: node_zfsstatus > 0
       labels:
         severity: critical

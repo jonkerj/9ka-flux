@@ -9,6 +9,7 @@ spec:
     rules:
     - alert: Booted
       annotations:
+        summary: 'Node {{ $labels.node_name }} has booted'
         message: '{{ $labels.node_name }} was booted {{ $value | humanizeDuration }} ago'
       expr: (time() - node_boot_time_seconds) < 300
       labels:
