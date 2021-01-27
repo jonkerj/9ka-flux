@@ -14,5 +14,4 @@ spec:
       name: admin-user
       namespace: prometheus-operator
     type: Opaque
-status: {}
 

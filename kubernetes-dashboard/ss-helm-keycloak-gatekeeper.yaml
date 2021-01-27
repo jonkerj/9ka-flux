@@ -12,5 +12,4 @@ spec:
       creationTimestamp: null
       name: helm-keycloak-gatekeeper
       namespace: kubernetes-dashboard
-status: {}
 

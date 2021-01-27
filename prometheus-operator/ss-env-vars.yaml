@@ -14,5 +14,4 @@ spec:
       name: envvars
       namespace: prometheus-operator
     type: Opaque
-status: {}
 
