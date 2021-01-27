@@ -13,5 +13,4 @@ spec:
       name: alertmanager-config
       namespace: monitoring
     type: Opaque
-status: {}
 

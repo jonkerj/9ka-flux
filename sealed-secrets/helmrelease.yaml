@@ -9,4 +9,4 @@ spec:
   chart:
     repository: https://bitnami-labs.github.io/sealed-secrets
     name: sealed-secrets
-    version: 1.13.2-r2
+    version: 1.14.0-r1

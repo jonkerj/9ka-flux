@@ -13,5 +13,4 @@ spec:
       name: helm-prometheus
       namespace: prometheus-operator
     type: Opaque
-status: {}
 
