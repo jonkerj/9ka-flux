@@ -33,6 +33,7 @@ spec:
           memory: "32Mi"
     postgresql:
       enabled: true
+      existingSecret: keycloak-postgresql
     resources:
       requests:
         cpu: 100m
@@ -40,6 +41,3 @@ spec:
       limits:
         cpu: 500m
         memory: 1Gi
-  valuesFrom:
-  - secretKeyRef:
-      name: helm-secrets
