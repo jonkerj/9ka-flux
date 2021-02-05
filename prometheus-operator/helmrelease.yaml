@@ -49,6 +49,12 @@ spec:
       admin:
         existingSecret: admin-user
       envFromSecret: envvars
+      extraSecretMounts:
+      - name: auth-generic-oauth-secret-mount
+        secretName: auth-generic-oauth-secret
+        defaultMode: 0440
+        mountPath: /etc/secrets/auth_generic_oauth
+        readOnly: true
       grafana.ini:
         server:
           root_url: https://grafana.9ka.nl
@@ -67,7 +73,8 @@ spec:
           enabled: true
           name: 9ka
           allow_sign_up: true
-          client_id: grafana
+          client_id: $__file{/etc/secrets/auth_generic_oauth/client_id}
+          client_secret: $__file{/etc/secrets/auth_generic_oauth/client_secret}
           scopes: openid profile email
           auth_url: https://sso.9ka.nl/auth/realms/9ka/protocol/openid-connect/auth
           token_url: https://sso.9ka.nl/auth/realms/9ka/protocol/openid-connect/token
@@ -116,6 +123,3 @@ spec:
       - --collector.filesystem.ignored-mount-points=^/(dev|proc|sys|var/lib/docker/.+)($|/)
       - --collector.filesystem.ignored-fs-types=^(autofs|binfmt_misc|cgroup|configfs|debugfs|devpts|devtmpfs|fusectl|hugetlbfs|mqueue|overlay|proc|procfs|pstore|rpc_pipefs|securityfs|sysfs|tracefs)$
       - --collector.mountstats
-  valuesFrom:
-  - secretKeyRef:
-      name: helm-prometheus
