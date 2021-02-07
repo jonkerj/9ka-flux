@@ -22,7 +22,7 @@ spec:
       smtp_ssl: false
     deployment:
       image:
-        tag: 1.18.0
+        tag: 1.19.0
     ingress:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt
