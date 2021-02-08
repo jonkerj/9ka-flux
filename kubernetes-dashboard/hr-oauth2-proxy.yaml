@@ -12,21 +12,22 @@ spec:
     version: 3.2.5
   values:
     image:
-      repository: quay.io/oauth2-proxy/oauth2-proxy
-      tag: v7.0.0
-    extraArgs:
-      email-domain: "kippendief.biz"
-      provider: "oidc"
-      oidc-issuer-url: "https://sso.9ka.nl/auth/realms/9ka"
-      login-url: "https://sso.9ka.nl/auth/realms/9ka/protocol/openid-connect/auth"
-      redeem-url: "https://sso.9ka.nl/auth/realms/9ka/protocol/openid-connect/token"
-      validate-url: "https://sso.9ka.nl/auth/realms/9ka/protocol/openid-connect/userinfo"
-      upstream: "http://echo-server/"
-      scope: "email"
-      skip-provider-button: true
-      skip-jwt-bearer-tokens: true
-      pass-basic-auth: false
-      pass-authorization-header: true
+#      repository: quay.io/oauth2-proxy/oauth2-proxy
+#      tag: v7.0.0
+      repository: jonkerj/oauth2-proxy
+      tag: fixflag
+    configFile: |
+      email_domain = "kippendief.biz"
+      provider = "keycloak"
+      login_url = "https://sso.9ka.nl/auth/realms/9ka/protocol/openid-connect/auth"
+      redeem_url = "https://sso.9ka.nl/auth/realms/9ka/protocol/openid-connect/token"
+      validate_url = "https://sso.9ka.nl/auth/realms/9ka/protocol/openid-connect/userinfo"
+      upstream = "http://echo-server/"
+      scope = "email"
+      skip_provider_button = true
+      skip_jwt_bearer_tokens = true
+      pass_basic_auth = false
+      pass_authorization_header = true
     config:
       existingSecret: oauth2-secret
     ingress:
