@@ -17,6 +17,7 @@ spec:
     ingress:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt
+      className: null
       enabled: true
       hostname: influxdb.9ka.nl
       tls: true
