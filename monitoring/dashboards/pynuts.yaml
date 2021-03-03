@@ -40,7 +40,7 @@ data:
     \          \"groupBy\": [\n            {\n              \"params\": [\n      \
     \          \"$__interval\"\n              ],\n              \"type\": \"time\"\
     \n            },\n            {\n              \"params\": [\n               \
-    \ \"none\"\n              ],\n              \"type\": \"fill\"\n            }\n\
+    \ \"null\"\n              ],\n              \"type\": \"fill\"\n            }\n\
     \          ],\n          \"measurement\": \"heat\",\n          \"orderByTime\"\
     : \"ASC\",\n          \"policy\": \"default\",\n          \"refId\": \"C\",\n\
     \          \"resultFormat\": \"time_series\",\n          \"select\": [\n     \
@@ -51,11 +51,11 @@ data:
     \ []\n        },\n        {\n          \"alias\": \"energy\",\n          \"groupBy\"\
     : [\n            {\n              \"params\": [\n                \"$__interval\"\
     \n              ],\n              \"type\": \"time\"\n            },\n       \
-    \     {\n              \"params\": [\n                \"none\"\n             \
+    \     {\n              \"params\": [\n                \"null\"\n             \
     \ ],\n              \"type\": \"fill\"\n            }\n          ],\n        \
     \  \"orderByTime\": \"ASC\",\n          \"policy\": \"default\",\n          \"\
     query\": \"SELECT non_negative_derivative(max(\\\"energy\\\"), 1s) FROM \\\"heat\\\
-    \" WHERE $timeFilter GROUP BY time($__interval) fill(previous)\",\n          \"\
+    \" WHERE $timeFilter GROUP BY time($__interval) fill(linear)\",\n          \"\
     rawQuery\": true,\n          \"refId\": \"A\",\n          \"resultFormat\": \"\
     time_series\",\n          \"select\": [\n            [\n              {\n    \
     \            \"params\": [\n                  \"value\"\n                ],\n\
